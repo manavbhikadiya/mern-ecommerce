@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+require("./config/db");
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -17,27 +17,6 @@ const orderRoutes = require('./routes/order');
 
 // app
 const app = express();
-
-// db connection
-const connectDB = async () => {
-  try {
-    await mongoose.connect(
-      process.env.MONGODB_URI,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-      }
-    );
-    console.log('MongoDB Connected');
-  } catch (err) {
-    console.error(err.message);
-    // exit process with failure
-    process.exit(1);
-  }
-};
-connectDB();
 
 // middlewares
 app.use(morgan('dev'));

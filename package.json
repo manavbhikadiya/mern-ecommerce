@@ -6,10 +6,10 @@
     "node": "18.x",
     "npm": "7.x"
   },
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
@@ -22,6 +22,7 @@
   "author": "Ashraf Kabir",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.1485.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "braintree": "^2.23.0",
@@ -40,6 +41,7 @@
     "mongoose": "^5.9.24",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
+    "serverless-http": "^3.2.0",
     "uuid": "^8.2.0",
     "uuidv1": "^1.6.14"
   }
